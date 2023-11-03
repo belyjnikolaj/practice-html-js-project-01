@@ -60,8 +60,7 @@ body {
 
 /*Налаштування адаптиву*/
 [class*="__container"] {
-  /*селектор атрибуту*/
-  max-width: 52.5rem; /* Обмежуючий(810) + відступи(2*15)*/
+  max-width: 52.5rem;
   padding-left: 0.9375rem;
   padding-right: 0.9375rem;
   margin: 0 auto;
@@ -136,7 +135,6 @@ body {
 }
 
 .header__menu {
-  
 }
 
 .header__button {
@@ -198,12 +196,331 @@ body {
 
 /*Головна секція*/
 
+.main-section {
+  min-height: 100vh;
+  position: relative;
+  display: flex;
+}
+
+.main-section__container {
+  padding-top: 5.625rem;
+  padding-bottom: 3.125rem;
+  position: relative;
+  z-index: 2;
+  gap: 1.25rem;
+  grid-template-columns: 54.320988% 1fr;
+  align-items: center;
+  display: grid;
+  flex: 1 1 auto;
+}
+
+@media (max-width: 43.75rem) {
+  .main-section__container {
+    grid-template-columns: auto;
+    align-content: center;
+  }
+}
+
+.main-section__content {
+  flex: 0 0 54.320988%;
+}
+
+.main-section__label {
+  font-style: 1rem;
+  font-weight: 500;
+  color: #fff;
+}
+
+.main-section__label:not(:last-child) {
+  margin-bottom: 0.75rem;
+}
+
+.main-section__title {
+}
+
+.main-section__video-link {
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+  color: #fff;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+@media (min-width: 43.75rem) {
+  .main-section__video-link {
+    justify-self: center;
+  }
+}
+
+.main-section__video-link::before {
+  content: "";
+  width: 2rem;
+  height: 2rem;
+  flex: 0 0 2rem;
+  border-radius: 50%;
+  background: url("../img/main/play.svg") left no-repeat;
+}
+
+.main-section__image {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: #000;
+}
+
+.main-section__image img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  object-fit: cover;
+}
+
+@media (max-width: 43.75rem) {
+  .main-section__image img {
+    opacity: 0.6; /*при змінні розміру екрану буде фон темніший і більш котрасним стане текст, для цього ми зробили ще в main-section__image background-color: #000;*/
+  }
+}
+
+/*Секція Матеріали*/
+
+.materials {
+  position: relative;
+  z-index: 2;
+}
+
+.materials__container {
+  position: relative;
+  padding-bottom: 1.25rem;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: 50% minmax(17.5rem, 20.3125rem);
+  justify-content: space-between;
+  align-items: start;
+  gap: 1.25rem;
+  min-width: 0;
+}
+.materials__content {
+  padding-top: 1.5625rem;
+  display: grid;
+  gap: 0.8125rem;
+  justify-items: start;
+}
+.materials__title {
+}
+
+.materials__text {
+}
+.materials__more {
+  border-radius: 0.25rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  padding: 0.625rem 0.875rem;
+  border: 1px solid #646d70;
+}
+.materials__slider {
+  transform: translate(0, -20.765027%);
+}
+.slider-materials {
+  position: relative;
+}
+.slider-materials__slide {
+  aspect-ratio: 325 / 366;
+  position: relative;
+}
+
+.slider-materials__slide img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  object-fit: cover;
+}
+
+.slider-materials__pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 0.3125rem 1rem 0.3125rem;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
+
+.slider-materials__pagination .swiper-pagination-bullet {
+  flex: 0 0 0.5rem;
+  height: 0.5rem;
+  background-color: #fff;
+  opacity: 0.4;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: opacity 0.3s;
+}
+
+.slider-materials__pagination .swiper-pagination-bullet-active {
+  opacity: 1;
+}
+
+.swiper {
+  overflow: hidden;
+}
+
+.swiper-initialized {
+  touch-action: pan-y;
+}
+
+.swiper-wrapper {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  box-sizing: content-box;
+}
+
+.swiper-slide {
+  flex-shrink: 0;
+}
+
+@media (min-width: 47.9988em) {
+  .materials::before {
+    content: "";
+    background-color: #fff;
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 2.3125rem;
+    transform: translate(0px, -100%);
+    width: 61.7%;
+  }
+
+  .materials::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    height: 8.75rem;
+    background-color: #222f33;
+    width: 38.3%;
+  }
+}
+
+@media (max-width: 47.9988em) {
+  .materials__container {
+    grid-template-columns: auto;
+  }
+  .materials__slider {
+    transform: translate(0, 0);
+  }
+}
+
+/*Секція Інновації*/
+
+.inovate {
+  background-color: #222f33;
+  padding: 4.375rem 0 5rem 0;
+}
+
+.inovate__container {
+}
+.inovate__title {
+}
+.inovate__title:not(:last-child) {
+  margin-bottom: 0.5rem;
+}
+.inovate__text {
+  columns: 2 15.625rem;
+  gap: 2.6875rem;
+  color: #fff;
+}
+
+@media (max-width: 47.9988em) {
+  .inovate {
+    padding: 1.875rem 0;
+  }
+}
+
+/*Сторінка Інфо*/
+
+.info {
+  padding-top: 85px;
+  padding-bottom: 85px;
+}
+.info__container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 4.6875rem;
+  row-gap: 1.875rem;
+}
+
+.info__image {
+  text-align: center; /*робимо зображення по центру*/
+}
+
+.info__image img {
+  max-width: 100%;
+}
+
+.info__content {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 3.75rem;
+  row-gap: 2.3125rem;
+}
+
+.info__item {
+}
+.info__title {
+  font-family: Merriweather;
+  font-size: 1.125rem;
+  color: #222f33;
+}
+
+.info__title:not(:last-child) {
+  margin-bottom: 0.25rem;
+}
+
+.info__text {
+  font-size: 0.75rem;
+}
+@media (max-width: 52.5rem) {
+  .info__content {
+    column-gap: 1.25rem;
+  }
+
+  .info__container {
+    column-gap: 1.5625rem;
+  }
+}
+@media (max-width: 47.9988rem) {
+  .info {
+    padding-top: 2.5rem;
+    padding-bottom: 2.5rem;
+  }
+
+  .info__container {
+    grid-template-columns: auto;
+  }
+
+  .info__content {
+    order: 1;
+  }
+
+  .info__image {
+    order: 2;
+  }
+}
+
 /*Підвал*/
 
 .footer {
   background-color: #222f33;
   padding-top: 2.0625rem;
-  padding-bottom: 2.0625rem;  
+  padding-bottom: 2.0625rem;
 }
-
-
